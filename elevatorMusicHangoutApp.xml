@@ -5,19 +5,19 @@
  * the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
- *	
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations under
  * the License
 -->
-	<ModulePrefs title="Hangout Starter">
+	<ModulePrefs title="Elevator Music">
 		<Require feature="rpc" />
 		<Require feature="views" />
 		<Require feature="locked-domain" />
 	</ModulePrefs>
-	<Content type="html"><![CDATA[     
+	<Content type="html"><![CDATA[
 
 <html>
 <style type="text/css">
@@ -26,12 +26,12 @@
   border-radius: 3px;
   -moz-border-radius: 3px;
   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-  background: -moz-linear-gradient(top, #fff, #ddd);  
+  background: -moz-linear-gradient(top, #fff, #ddd);
   border: 1px solid #bbb;
 }
 
 .button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333)); 
+	background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333));
 	background: -moz-linear-gradient(bottom, #ddd, #aaa); }
 
 -->
@@ -40,19 +40,15 @@
 
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<h3>Simple Hangout App</h3>
+<h3>Elevator Music</h3>
 
 <p>
-<input class="button" type="button" value="Show participants!" id="showParticipants" 
+<input class="button" type="button" value="Show participants!" id="showParticipants"
     style="visibility:hidden;"
     onClick="showParticipants()"/>
 </p>
 
 <div id="participantsDiv"></div>
-
-<hr>
-
-<p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
 
 <script>
 function showParticipants() {
@@ -77,7 +73,7 @@ function showParticipants() {
 }
 
 function init() {
-  // When API is ready...                                                         
+  // When API is ready...
   gapi.hangout.onApiReady.add(
       function(eventObj) {
         if (eventObj.isApiReady) {
@@ -87,11 +83,10 @@ function init() {
       });
 }
 
-// Wait for gadget to load.                                                       
+// Wait for gadget to load.
 gadgets.util.registerOnLoadHandler(init);
 </script>
 </body>
 ]]>
 </Content>
 </Module>
-
