@@ -61,6 +61,7 @@
 
 <script>
 function playMusic() {
+		gooddaySound = gapi.hangout.av.effects.createAudioResource(gooddaySoundURL).createSound();
 		gooddaySound.play({loop: false, global:true});
 }
 
@@ -81,11 +82,6 @@ function init() {
       });
 
 			var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
-
-			// Allocate the audio resource and immediately create a
-			// sound instance.
-			gooddaySound = gapi.hangout.av.effects.createAudioResource(
-					gooddaySoundURL).createSound();
 }
 
 // Wait for gadget to load.
