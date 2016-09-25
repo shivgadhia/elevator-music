@@ -43,33 +43,29 @@
 <h3>Elevator Music</h3>
 
 <p>
-<input class="button" type="button" value="Show participants!" id="showParticipants"
+<input class="button" type="button" value="Play Music!" id="playMusic"
     style="visibility:hidden;"
-    onClick="showParticipants()"/>
+    onClick="playMusic()"/>
+
+		<input class="button" type="button" value="Stop Music!" id="stopMusic"
+		    style="visibility:hidden;"
+		    onClick="stopMusic()"/>
 </p>
 
-<div id="participantsDiv"></div>
+<div>
+	<i>Credits</i>
+	<p>
+		Deadly Roulette Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 License http://creativecommons.org/licenses/by/3.0/
+	</p>
+</div>
 
 <script>
-function showParticipants() {
-  var participants = gapi.hangout.getParticipants();
+function playMusic() {
+		gooddaySound.play({loop: false, global:true});
+}
 
-  var retVal = '<p>Participants: </p><ul>';
-
-  for (var index in participants) {
-    var participant = participants[index];
-
-    if (!participant.person) {
-      retVal += '<li>A participant not running this app</li>';
-    }
-    retVal += '<li>' + participant.person.displayName + '</li>';
-  }
-
-  retVal += '</ul>';
-
-  var div = document.getElementById('participantsDiv');
-
-  div.innerHTML = retVal;
+function stopMusic() {
+		gooddaySound.dispose();
 }
 
 function init() {
@@ -77,10 +73,19 @@ function init() {
   gapi.hangout.onApiReady.add(
       function(eventObj) {
         if (eventObj.isApiReady) {
-          document.getElementById('showParticipants')
+          document.getElementById('playMusic')
             .style.visibility = 'visible';
+					document.getElementById('stopMusic')
+	            .style.visibility = 'visible';
         }
       });
+
+			var gooddaySoundURL = 'http://hangoutmediastarter.appspot.com/static/goodday.wav';
+
+			// Allocate the audio resource and immediately create a
+			// sound instance.
+			gooddaySound = gapi.hangout.av.effects.createAudioResource(
+					gooddaySoundURL).createSound();
 }
 
 // Wait for gadget to load.
