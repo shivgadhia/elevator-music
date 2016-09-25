@@ -61,6 +61,7 @@
 
 <script>
 function playMusic() {
+		var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
 		gooddaySound = gapi.hangout.av.effects.createAudioResource(gooddaySoundURL).createSound();
 		gooddaySound.play({loop: false, global:true});
 }
@@ -80,8 +81,6 @@ function init() {
 	            .style.visibility = 'visible';
         }
       });
-
-			var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
 }
 
 // Wait for gadget to load.
