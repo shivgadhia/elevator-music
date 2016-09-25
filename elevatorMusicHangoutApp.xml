@@ -19,74 +19,102 @@
 	</ModulePrefs>
 	<Content type="html"><![CDATA[
 
-<html>
-<style type="text/css">
-<!--
-.button {
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ddd));
-  background: -moz-linear-gradient(top, #fff, #ddd);
-  border: 1px solid #bbb;
-}
+		<html>
+		<style type="text/css">
 
-.button:active {
-	background: -webkit-gradient(linear, left top, left bottom, from(#aaa), to(#333));
-	background: -moz-linear-gradient(bottom, #ddd, #aaa); }
+		.round-button {
+		    display:block;
+		    width:36px;
+		    height:36px;
+		    padding: 24px;
+		    line-height:50px;
+		    border: 2px solid #f5f5f5;
+		    border-radius: 50%;
+		    color:#f5f5f5;
+		    text-align:center;
+		    text-decoration:none;
+		    background: #464646;
+		    box-shadow: 0 0 3px gray;
+		    font-size:20px;
+		    font-weight:bold;
+		    margin: 16px;
+		    margin-bottom: 24px;
+		}
+		.round-button:hover {
+		    background: #262626;
+		}
 
--->
-</style>
-<body>
+		.panel {
+		  border: 2px solid #f5f5f5;
+		  border-radius: 4px;
+		  background: #464646;
+		  box-shadow: 0 0 3px gray;
+		  padding: 16px;
+		  margin: 16px;
+		  color: #8B8B8B
+		}
 
-<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+		.center {
+		    margin: auto;
+		    width: 50%;
+		    padding: 16px;
+		}
+		</style>
+		<body>
 
-<h3>Elevator Music</h3>
+		<script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-<p>
-<input class="button" type="button" value="Play Music!" id="playMusic"
-    style="visibility:hidden;"
-    onClick="playMusic()"/>
+		<h2 class="center">Elevator Music</h2>
 
-		<input class="button" type="button" value="Stop Music!" id="stopMusic"
+		<div class="center">
+		  <input class="round-button" type="image"  src="play.png" id="playMusic"
 		    style="visibility:hidden;"
-		    onClick="stopMusic()"/>
-</p>
+		    onClick="playMusic()"/>
 
-<div>
-	<i>Credits</i>
-	<p>
-		Deadly Roulette Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 License http://creativecommons.org/licenses/by/3.0/
-	</p>
-</div>
+		  <input class="round-button" type="image" src="stop.png" id="stopMusic"
+				    style="visibility:hidden;"
+				    onClick="stopMusic()"/>
 
-<script>
-function playMusic() {
-		var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
-		gooddaySound = gapi.hangout.av.effects.createAudioResource(gooddaySoundURL).createSound();
-		gooddaySound.play({loop: true, global:true});
-}
+		</div>
 
-function stopMusic() {
-		gooddaySound.dispose();
-}
+		<div class="panel">
+			<i>Credits</i>
+			<p>
+				Deadly Roulette Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 3.0 License http://creativecommons.org/licenses/by/3.0/
+			</p>
+		  <p style="text-align:center">
+		    A Hangout App by <a href="http://twitter.com/shivgadhia" title="Shivam Gadhia" target="_blank">Shivam Gadhia</a>
+			</p>
+		</div>
 
-function init() {
-  // When API is ready...
-  gapi.hangout.onApiReady.add(
-      function(eventObj) {
-        if (eventObj.isApiReady) {
-          document.getElementById('playMusic')
-            .style.visibility = 'visible';
-					document.getElementById('stopMusic')
-	            .style.visibility = 'visible';
-        }
-      });
-}
+		<script>
+		function playMusic() {
+				var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
+				gooddaySound = gapi.hangout.av.effects.createAudioResource(gooddaySoundURL).createSound();
+				gooddaySound.play({loop: true, global:true});
+		}
 
-// Wait for gadget to load.
-gadgets.util.registerOnLoadHandler(init);
-</script>
-</body>
+		function stopMusic() {
+				gooddaySound.dispose();
+		}
+
+		function init() {
+		  // When API is ready...
+		  gapi.hangout.onApiReady.add(
+		      function(eventObj) {
+		        if (eventObj.isApiReady) {
+		          document.getElementById('playMusic')
+		            .style.visibility = 'visible';
+							document.getElementById('stopMusic')
+			            .style.visibility = 'visible';
+		        }
+		      });
+		}
+
+		// Wait for gadget to load.
+		gadgets.util.registerOnLoadHandler(init);
+		</script>
+		</body>
 ]]>
 </Content>
 </Module>
