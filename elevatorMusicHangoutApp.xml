@@ -80,7 +80,7 @@ function init() {
         }
       });
 
-			var gooddaySoundURL = 'http://hangoutmediastarter.appspot.com/static/goodday.wav';
+			var gooddaySoundURL = 'https://shivgadhia.github.io/elevator-music/DeadlyRoulette.wav';
 
 			// Allocate the audio resource and immediately create a
 			// sound instance.
